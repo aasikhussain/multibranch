@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git 'https://github.com/ValaxyTech/hello-world.git'
+                git branch: 'Dev', url: 'https://github.com/aasikhussain/multibranch.git'
             }
 			}
         stage('Build Code') {
