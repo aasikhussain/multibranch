@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Clone Code') {
             steps {
-                git branch: 'Dev', url: 'https://github.com/aasikhussain/multibranch.git'
+                git branch: 'Preprod', url: 'https://github.com/aasikhussain/multibranch.git'
             }
 			}
         stage('Build Code') {
@@ -17,7 +17,7 @@ pipeline {
         stage('Build deploy') {
             steps {
                 sshagent(['depoy_user']) {
-                sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@54.205.55.160:/opt/apache-dev/webapps/"
+                sh "scp -o StrictHostKeyChecking=no webapp/target/webapp.war ubuntu@54.205.55.160:/opt/apache-Preprod/webapps/"
                 //scp <src_file> username@IP:<dest_path>
                 }
             }
